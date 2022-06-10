@@ -1,6 +1,11 @@
 import fs from "fs";
 import pinataSdk from "@pinata/sdk";
-const pinata = pinataSdk('API_KEY', 'API_SECRET_KEY');
+
+// aidan.starke@centrality.ai
+// const pinata = pinataSdk('4da6a75d1a04694efd83', '7baf1ea3802d3a68365b5a33a78bd75357029473eaa935ff65680d019eb75ea1');
+
+// aidan@starkemedia.com
+// const pinata = pinataSdk('6a763cf85533d2612a3f', '28ea0e620ba973859007d582ea1825f578b25540b91e705b33f46df2ab1352c5');
 
 function sleep(ms) {
   return new Promise((resolve) => {
@@ -17,13 +22,14 @@ for (let i = 0; i <= 116; i++) {
 
     console.log('pin', pin)
 
-    await pinata.pinByHash(pin.hash, {pinataMetadata: pin.metadata})
+    //@ts-ignore
+    await pinata.unpin(pin.hash)
       .then(result => console.log(result))
       .catch(err => console.log(err));
 
   })
-  await sleep(5000)
+  await sleep(1000)
 }
 }
 
-main().then(() => console.log('pinned')).catch(err => console.log(err))
+main().then(() => console.log('UNpinned')).catch(err => console.log(err))

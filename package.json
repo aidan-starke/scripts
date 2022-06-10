@@ -1,12 +1,18 @@
 {
   "name": "scripts",
-  "packageManager": "yarn@3.2.0",
   "scripts": {
-    "pin": "ts-node -r tsconfig-paths/register pinata.ts"
+    "pin": "ts-node -r tsconfig-paths/register pinata.ts",
+    "yeet": "ts-node -r tsconfig-paths/register yeet.ts",
+    "discord": "ts-node -r tsconfig-paths/register discord.ts"
   },
   "dependencies": {
+    "@cennznet/api": "2.1.1-alpha.2",
+    "@cennznet/types": "2.1.1-alpha.2",
+    "@discordjs/rest": "^0.5.0",
     "@pinata/sdk": "^1.1.24",
     "@tsconfig/node16": "^1.0.2",
+    "discord-api-types": "^0.33.5",
+    "discord.js": "^13.8.0",
     "prettier": "^2.5.1",
     "ts-node": "^10.7.0",
     "tslib": "^2.3.1",
