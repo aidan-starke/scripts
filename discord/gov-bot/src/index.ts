@@ -12,16 +12,6 @@ import Ping from "./commands/ping";
 //types
 import { MessageType } from "./types/messageType";
 
-interface DiscordClient {
-  user: {
-    setActivity: Function;
-    tag: string;
-  };
-  on: Function;
-  login: Function;
-  get_channel: Function;
-}
-
 const bot = new Client({
   partials: ["MESSAGE", "CHANNEL", "REACTION"],
   intents: [
@@ -47,13 +37,13 @@ bot.on("ready", async () => {
   bot!.user.setActivity(`${prefix} ping`);
   const channel = bot.channels.cache.get(CHANNEL_ID);
   (channel as any).fetchWebhooks().then((hooks) => {
-    webhook = hooks.find(hook => hook.id === WEBHOOK_ID)
+    webhook = hooks.find((hook) => hook.id === WEBHOOK_ID);
   });
+  console.log({webhook});
   // webhook = await (channel as any).createWebhook("CENNZnet Governance", {
   //   avatar:
   //     "https://raw.githubusercontent.com/cennznet/app-hub/aded99dc4b695afe1d69eaa3f01871d08d92f9c0/libs/assets/vectors/cennznet-icon.svg",
   // });
-
 });
 
 //When there is a message in server
